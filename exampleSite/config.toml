@@ -5,6 +5,11 @@ copyright = "Copyright 2018, Mark Hollomon, parts Copyright © 2008–2018, @Jef
 canonifyurls = true
 paginate = 3
 
+# Optionally supported.
+# If blank or commpeted out, the code will
+# not be included in the header.
+#googleAnalytics = "UA-123-45"
+
 theme = "hugo-theme-vellichor"
 
 [taxonomies]
