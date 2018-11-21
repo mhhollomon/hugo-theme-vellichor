@@ -10,3 +10,6 @@ theme = "hugo-theme-vellichor"
 [taxonomies]
     tag = "tags"
     archive = "archives"
+
+[params]
+headerImage = "img/bg-blog.jpg"
