@@ -1,7 +1,7 @@
 baseurl = "https://example.com"
 title = "Vellichor Hugo Theme"
 author = "mhhollomon"
-copyright = "Copyright 2918, Mark Hollomon, parts Copyright © 2008–2018, @JeffProd"
+copyright = "Copyright 2018, Mark Hollomon, parts Copyright © 2008–2018, @JeffProd"
 canonifyurls = true
 paginate = 3
 
@@ -11,5 +11,8 @@ theme = "hugo-theme-vellichor"
     tag = "tags"
     archive = "archives"
 
-[params]
-headerImage = "img/bg-blog.jpg"
+[Params]
+   # Image to place in the header. Optional.
+   # if you don't want this, comment it out.
+   # A solid color band will be used instead.
+   headerImage = "img/bg-blog.jpg"

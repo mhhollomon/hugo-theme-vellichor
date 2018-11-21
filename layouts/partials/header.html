@@ -25,7 +25,11 @@
 
     <!-- hero -->
     <section class="hero is-info is-medium">
-        <div class="hero-body" style="background-image: url({{ .Site.Params.headerImage | absURL }});">
+        <div class="hero-body" 
+               {{ with .Site.Params.headerImage }}
+                  style="background-image: url({{ . | absURL }});"
+               {{ end }}
+                  >
             <div class="container has-text-centered">
                 <br>
                 <h1 class="title is-size-1">
