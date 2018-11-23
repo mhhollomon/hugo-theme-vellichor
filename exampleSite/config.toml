@@ -26,3 +26,10 @@ theme = "hugo-theme-vellichor"
     # on each page of the listing.
     # Comment out this line if you don't want anything.
     blogWelcome = "Welcome to my blog!"
+    #
+    # Format for the posting date. Default is "January 2, 2006"
+    postDateFormat = "2006-01-02"
+    #
+    # If set and true then reading time will be displayed in the post listing.
+    showReadingTime = 0
+
