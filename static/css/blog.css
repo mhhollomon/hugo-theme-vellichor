@@ -9,3 +9,7 @@ html,body {
     }
 .mysocial { color: hsl(0, 0%, 100%);}
 .mysocial:hover { color: hsl(0, 0%, 71%) }
+
+hr {
+    background-color: #909090;
+}
