@@ -6,7 +6,7 @@ canonifyurls = true
 paginate = 3
 
 # Optionally supported.
-# If blank or commpeted out, the code will
+# If blank or commented out, the code will
 # not be included in the header.
 #googleAnalytics = "UA-123-45"
 
@@ -17,7 +17,12 @@ theme = "hugo-theme-vellichor"
     archive = "archives"
 
 [Params]
-   # Image to place in the header. Optional.
-   # if you don't want this, comment it out.
-   # A solid color band will be used instead.
-   headerImage = "img/bg-blog.jpg"
+    # Image to place in the header. Optional.
+    # if you don't want this, comment it out.
+    # A solid color band will be used instead.
+    headerImage = "img/bg-blog.jpg"
+    #
+    # This text will be placed just above the posts
+    # on each page of the listing.
+    # Comment out this line if you don't want anything.
+    blogWelcome = "Welcome to my blog!"
