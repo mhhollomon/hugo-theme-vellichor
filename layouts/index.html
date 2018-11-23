@@ -6,7 +6,7 @@
         <div class="tile is-child box">
             <div class="content">
                 {{ with .Site.Params.blogWelcome }}
-                <h3>Welcome to my blog !</h3>
+                <h3>{{ . }}</h3>
                 {{ end }}
                 <hr>
                 {{ range $paginator.Pages }}

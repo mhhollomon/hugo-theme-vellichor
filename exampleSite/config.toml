@@ -17,6 +17,7 @@ theme = "hugo-theme-vellichor"
     archive = "archives"
 
 [Params]
+    #
     # Image to place in the header. Optional.
     # if you don't want this, comment it out.
     # A solid color band will be used instead.
@@ -27,7 +28,7 @@ theme = "hugo-theme-vellichor"
     # Comment out this line if you don't want anything.
     blogWelcome = "Welcome to my blog!"
     #
-    # Format for the posting date. Default is "January 2, 2006"
+    # Format for the posting date. Default, if this setting is missing, is "January 2, 2006"
     postDateFormat = "2006-01-02"
     #
     # If set and true then reading time will be displayed in the post listing.
