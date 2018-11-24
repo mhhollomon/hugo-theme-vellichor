@@ -2,9 +2,13 @@
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ .Site.Title }} {{ with .Title }} | {{ . }}{{ end }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {{ if eq .Site.Title .Title }}
+    <title>{{ .Site.Title }}</title>
+    {{ else }}
+    <title>{{ .Site.Title }} {{ with .Title }} | {{ . }}{{ end }}</title>
+    {{end}}
     
    {{ if hasPrefix .Site.GoogleAnalytics "UA-" }}
       {{ template "_internal/google_analytics.html" . }}
@@ -19,9 +23,7 @@
 
     <!-- nav -->
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="{{ .Site.BaseURL | absURL }}">Home</a>
-        </div>
+        {{ partial "top-menu.html" . }}
     </nav>
     <!-- /nav -->
 
