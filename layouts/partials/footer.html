@@ -3,7 +3,7 @@
         <p>
             {{ partial "social.html" . }}
             <br><br>
-            {{ with .Site.Copyright }}{{.}}{{else}} Copyright &copy; {{ .Site.Author }} {{ now.Format "2006"}} {{end}}
+            {{ with .Site.Copyright }}{{.}}{{else}} Copyright &copy; {{ .Site.Params.Author | default "" }} {{ now.Format "2006"}} {{end}}
             // Hugo Theme <a href="https://github.com/mhhollomon/hugo-theme-vellichor" class="mysocial">Vellichor</a>
         </p>
     </div>

@@ -1,7 +1,6 @@
 
 <!-- social partial start -->
 
-{{ $services := slice "twitter" "facebook" "youtube" "reddit" "github" }}
 {{ $size := ( .Site.Params.socialIconSize | default "large") }}
 
 {{ $span_class := "is-large" }}
@@ -15,17 +14,15 @@
 {{ end }}
 
 
-{{/* We make the unwarranted assumption that the name of the service is thesame as website */}}
+{{/* We make the unwarranted assumption that the name of the service is the same as website */}}
 
-{{ range $this_serv := $services }}
-    {{ if isset $.Site.Social $this_serv }}
-        <span class="icon {{$span_class}}">
-            <a href="https://{{$this_serv}}.com/{{index $.Site.Social $this_serv}}" class="mysocial">
-                <i class="fab fa-{{$this_serv}} {{$icon_class}}"></i>
-            </a>
-        </span>
-        &nbsp;&nbsp;
-    {{ end }}
+{{ range $serv, $userid := .Site.Social }}
+    <span class="icon {{$span_class}}">
+        <a href="https://{{$serv}}.com/{{$userid}}" class="mysocial">
+            <i class="fab fa-{{$serv}} {{$icon_class}}"></i>
+        </a>
+    </span>
+    &nbsp;&nbsp;
 {{ end }}
 
 <!-- social partial end -->

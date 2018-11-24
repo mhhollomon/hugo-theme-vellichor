@@ -1,10 +1,9 @@
 baseurl = "https://example.com"
 title = "Vellichor Hugo Theme"
-author = "Fab User"
 #
 # Placed in the footer. If missing, then a string containing
 # the current year and author parameter is used.
-copyright = "Copyright © 2018 Fabulous User"
+#copyright = "Copyright © 2018 Fabulous User"
 canonifyurls = true
 paginate = 3
 
@@ -30,6 +29,10 @@ theme = "hugo-theme-vellichor"
     #Reddit   = "userid"
 
 [Params]
+    #
+    # default author. Needs to be here, unless you
+    # provide a copyright notice above.
+    author = "Fab User"
     #
     # Image to place in the header. Optional.
     # if you don't want this, comment it out.
