@@ -16,12 +16,22 @@ theme = "hugo-theme-vellichor"
     tag = "tags"
     archive = "archives"
 
+[Social]
+    #
+    # List of user ids on various Social Platforms.
+    # Ones that are not present, are not placed into the footer.
+    GitHub   = "userid"
+    Facebook = "userid"
+    #Twitter  = "userid"
+    #Youtube  = "userid"
+    #Reddit   = "userid"
+
 [Params]
     #
     # Image to place in the header. Optional.
     # if you don't want this, comment it out.
     # A solid color band will be used instead.
-    headerImage = "img/bg-blog.jpg"
+    headerImage = "img/bg-books-pixabay.jpg"
     #
     # This text will be placed just above the posts
     # on each page of the listing.
@@ -33,4 +43,7 @@ theme = "hugo-theme-vellichor"
     #
     # If set and true then reading time will be displayed in the post listing.
     showReadingTime = 0
-
+    #
+    # Size of social network icons to use small/medium/large
+    # the default is large.
+    socialIconSize = "large"

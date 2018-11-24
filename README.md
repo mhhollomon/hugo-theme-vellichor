@@ -1,8 +1,9 @@
-# HUGO blog theme by @mhhollomon
+# HUGO blog theme by mhhollomon
 
 A free blog theme for [HUGO](https://gohugo.io/), with tags, archives, last posts... Using [Bulma CSS framework](https://bulma.io/).
 
 based on the the [jeffprod theme](https://github.com/Tazeg/hugo-blog-jeffprod)
+
 
 # Install
 
@@ -24,6 +25,8 @@ theme = "vellichor"
     tag = "tags"
     archive = "archives"
 ```
+
+See below for configuration options.
 
 ### Write blog posts
 
@@ -49,6 +52,8 @@ All files to publish are in `public/` directory.
 
 ## Configuration
 
+### config.toml
+
 There are various settings in the config.toml that affect how pages are rendered. See the exampleSites/config.toml for a sample and further information.
 
 |Variable|Section|Effect|
@@ -58,13 +63,26 @@ There are various settings in the config.toml that affect how pages are rendered
 |BlogWelcome|Params|Text to place just above the blog post listing. (Optional).|
 |PostDateFormat|Params|Format for the date of the posting (Optional). Default format is "January 2, 2006". See hugo dou=cs for format details.|
 |showReadTime|Params|Controls the display of reading time in the post listing. If absent or false, the reading time will not be displayed.|
+|socialIconSize|Params|Controls the size of the social media icons in the footer. Must be one of `small`, `medium`, or `large`. `large` is the default|
+|github,twitter|Social|If an userid is specified for the service, the icon and link are placed in the footer. See config.toml for the list of currently supported services.|
 
-<!--
-# Donate
+### partials
 
-<https://en.jeffprod.com/donate/>
--->
+The following partials can be copied from the theme directory into your site's `layout\partial` directory in order to customize.
+
+#### social.html
+
+This controls the layout of the social media icons in the footer. It is used in all top level index types.
+
+The list of services can be controlled directly from `config.toml`
+
+
+# License
+
+Licensed under the MIT license.
 
 # Credits
 
-Background image by https://pixabay.com
+- Background image from [pixabay](https://pixabay.com).
+- [Original jeffprod theme](https://github.com/Tazeg/hugo-blog-jeffprod).
+- [Font Awsome](https://fontawesome.com/) icons.
