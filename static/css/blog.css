@@ -17,3 +17,8 @@ hr {
 pre {
     background-color: #d0d2d4;
 }
+
+.blog-footer {
+    background-color: #443322!important;
+    color : #ffffff!important;
+}

@@ -1,9 +1,10 @@
-<footer class="footer has-background-grey-darker has-text-white">
+<footer class="footer  {{ .Site.Params.footerClass | default "blog-footer" }}">
     <div class="content has-text-centered">
         <p>
             {{ partial "social.html" . }}
             <br><br>
-            Copyright &copy; {{ .Site.Title }} {{ now.Format "2006"}} // Hugo Theme <a href="https://github.com/mhhollomon/hugo-theme-vellichor" class="mysocial">Vellichor</a>
+            {{ with .Site.Copyright }}{{.}}{{else}} Copyright &copy; {{ .Site.Author }} {{ now.Format "2006"}} {{end}}
+            // Hugo Theme <a href="https://github.com/mhhollomon/hugo-theme-vellichor" class="mysocial">Vellichor</a>
         </p>
     </div>
 </footer>

@@ -1,7 +1,10 @@
 baseurl = "https://example.com"
 title = "Vellichor Hugo Theme"
-author = "mhhollomon"
-copyright = "Copyright 2018, Mark Hollomon, parts Copyright © 2008–2018, @JeffProd"
+author = "Fab User"
+#
+# Placed in the footer. If missing, then a string containing
+# the current year and author parameter is used.
+copyright = "Copyright © 2018 Fabulous User"
 canonifyurls = true
 paginate = 3
 
@@ -47,3 +50,8 @@ theme = "hugo-theme-vellichor"
     # Size of social network icons to use small/medium/large
     # the default is large.
     socialIconSize = "large"
+    #
+    # CSS Class to use to style the footer (background-color, etc)
+    # define your own (copy static/css/blog.css) or use one (or more) of the Bulma helper classes.
+    # Value below is the default if the value is not given.
+    footerClass = "blog-footer"
