@@ -15,9 +15,12 @@ paginate = 3
 
 theme = "hugo-theme-vellichor"
 
-#[taxonomies]
-#    tag = "tags"
-#    archive = "archives"
+#
+# Tell Hugo what groupings we want to use.`
+# This is required by the theme.
+[taxonomies]
+    tag = "tags"
+    archive = "archives"
 
 [Social]
     #
