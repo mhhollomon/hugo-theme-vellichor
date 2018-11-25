@@ -4,6 +4,7 @@ title = "Vellichor Hugo Theme"
 # Placed in the footer. If missing, then a string containing
 # the current year and author parameter is used.
 #copyright = "Copyright © 2018 Fabulous User"
+#
 canonifyurls = true
 paginate = 3
 
@@ -14,9 +15,9 @@ paginate = 3
 
 theme = "hugo-theme-vellichor"
 
-[taxonomies]
-    tag = "tags"
-    archive = "archives"
+#[taxonomies]
+#    tag = "tags"
+#    archive = "archives"
 
 [Social]
     #

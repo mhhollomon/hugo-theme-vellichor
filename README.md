@@ -1,29 +1,30 @@
-# HUGO blog theme by mhhollomon
+# Vellichor HUGO blog theme
 
-A free blog theme for [HUGO](https://gohugo.io/), with tags, archives, last posts... Using [Bulma CSS framework](https://bulma.io/).
+A free customizable blog theme for [HUGO](https://gohugo.io/) using [Bulma CSS framework](https://bulma.io/).
 
-based on the the [jeffprod theme](https://github.com/Tazeg/hugo-blog-jeffprod)
+- Reactive
+- Display Recent posts
+- Display tags
+- Display archives
+- Custom top navigation
+- Custom footer information
+- Custom styling
+
+Based on the the [jeffprod theme](https://github.com/Tazeg/hugo-blog-jeffprod)
 
 
-# Install
+# Installation
 
-Install HUGO (<https://gohugo.io/>) then :
+Follow the themes guide on the Hugo website. Briefly, within your Hugo site directory:
 
 ```
-hugo new site myblog
-cd myblog
-git clone https://github.com/mhhollomon/hugo-theme-vellichor.git themes/vellichor
+$ git submodule add https://github.com/mhhollomon/hugo-theme-vellichor themes/hugo-theme-vellichor
 ```
-In the file `config.toml` add the lines :
+
+This will add the theme under the themes directory. Then copy the example `config.toml` to see all the configration options.
+
 ```
-theme = "vellichor"
-
-[permalinks]
-    post = "/:year/:filename"
-
-[taxonomies]
-    tag = "tags"
-    archive = "archives"
+$ cp themes/hugo-them-vellichor/exampleSite/config.toml .
 ```
 
 See below for configuration options.
@@ -33,24 +34,11 @@ See below for configuration options.
 ```
 hugo new post/my-first-post.md
 ```
-And edit this new file `content/post/my-first-post.md`. You can use [HUGO shortcodes](https://gohugo.io/content-management/shortcodes/) and [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
-### Render
+And edit this new file `content/post/my-first-post.md`. You can use [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [HUGO shortcodes](https://gohugo.io/content-management/shortcodes/) 
 
-```
-hugo server
-```
-Then go to <http://localhost:1313>
 
-### Create the web site
-
-```
-hugo
-```
-
-All files to publish are in `public/` directory.
-
-## Configuration
+# Configuration
 
 ### config.toml
 
@@ -70,7 +58,7 @@ There are various settings in the config.toml that affect how pages are rendered
 
 ### partials
 
-The following partials can be copied from the theme directory into your site's `layout\partial` directory in order to customize.
+The following partials can be copied from the theme directory into your site's `layout/partial` directory in order to customize.
 
 ```
 cp themes/hugo-theme-vellichore/layouts/partial/<partial> ./layouts/partial
@@ -85,7 +73,6 @@ The list of services that are displayed can be controlled directly from `config.
 #### top-menu.html
 
 This contains the list links that are shown in the top navigation bar.
-
 
 # License
 
