@@ -8,7 +8,7 @@ description = "A blog theme based on jeffprod for HUGO built with Bulma CSS. Inc
 homepage = "https://github.com/mhhollomon/hugo-theme-vellichor"
 tags = ["simple","blog","theme","pagination","archives","tags","bulma","personal"]
 features = ["pagination","archives","tags"]
-min_version = "0.41"
+min_version = "0.49"
 
 [author]
   name = "mhhollomon"
