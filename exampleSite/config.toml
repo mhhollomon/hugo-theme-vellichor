@@ -7,14 +7,16 @@ title = "Vellichor Hugo Theme"
 #
 canonifyurls = true
 paginate = 3
+theme = "hugo-theme-vellichor"
 
 # Optionally supported.
 # If blank or commented out, the code will
 # not be included in the header.
 #googleAnalytics = "UA-123-45"
 
-theme = "hugo-theme-vellichor"
-
+[author]
+    name = "Fab User"
+    email ="fab.user@example.com"
 #
 # Tell Hugo what groupings we want to use.`
 # This is required by the theme.
@@ -33,10 +35,6 @@ theme = "hugo-theme-vellichor"
     #Reddit   = "userid"
 
 [Params]
-    #
-    # default author. Needs to be here, unless you
-    # provide a copyright notice above.
-    author = "Fab User"
     #
     # Image to place in the header. Optional.
     # if you don't want this, comment it out.
