@@ -60,3 +60,24 @@ theme = "hugo-theme-vellichor"
     # define your own (copy static/css/blog.css) or use one (or more) of the Bulma helper classes.
     # Value below is the default if the value is not given.
     footerClass = "blog-footer"
+
+[menu]
+    #
+    # The "topbrand" menu is used as the navbar at top left.
+    # The below definition is what will be shown if the menu is not
+    # defined in the config file.
+    # If you wish to add new entries, uncomment these so that you
+    # don't lose these (if you want them). All entries will be shown
+    # in order of ascending weight.
+
+    #[[menu.topbrand]]
+    #    identifier = "home"
+    #    name = "Home"
+    #    url = "/"
+    #    weight = -110
+    #
+    #[[menu.topbrand]]
+    #    identifier = "about"
+    #    name = "About"
+    #    url = "/about/"
+    #    weight = -100

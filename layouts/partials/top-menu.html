@@ -1,4 +1,14 @@
+<navbar class="navbar-brand">
+    {{ with .Site.Menus.topbrand }}
+    {{ range . }}
+        <a class="navbar-item" href="{{.URL}}">{{.Name}}</a>
+    {{end}}
+    {{else}}
 <div class="navbar-brand">
-    <a class="navbar-item" href="{{ .Site.BaseURL | absURL }}">Home</a>
-    <a class="navbar-item" href="{{ "about" | absURL }}">About</a>
+    <a class="navbar-item" href="{{ .Site.BaseURL | absURL }}">DefHome</a>
+    <a class="navbar-item" href="{{ "about" | absURL }}">DefAbout</a>
 </div>
+    {{end}}
+</navbar>
+<!--
+-->
