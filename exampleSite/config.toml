@@ -63,21 +63,36 @@ theme = "hugo-theme-vellichor"
 
 [menu]
     #
-    # The "topbrand" menu is used as the navbar at top left.
+    # The "brand" menu is used as the navbar at top left.
     # The below definition is what will be shown if the menu is not
     # defined in the config file.
     # If you wish to add new entries, uncomment these so that you
     # don't lose these (if you want them). All entries will be shown
     # in order of ascending weight.
 
-    #[[menu.topbrand]]
+    #[[menu.brand]]
     #    identifier = "home"
     #    name = "Home"
     #    url = "/"
     #    weight = -110
     #
-    #[[menu.topbrand]]
+    #[[menu.brand]]
     #    identifier = "about"
     #    name = "About"
     #    url = "/about/"
     #    weight = -100
+    #
+    # The "topleft" menu will be just to the right of the "brand" menu,
+    # if defined. On a mobile platform, a "Hamburger" menu will be shown
+    # to show these. There is nothing in this by default
+    #
+    # The "topright" menu is drawn flush with the right side of the window.
+    # They will be hidden by default on mobile platforms.
+    # The RSS entry below is what you will get by default
+    # 
+    #[[menu.topright]]
+    #   identifier = "rss"
+    #   name = "RSS"
+    #   pre = "<i class=\"fas fa-rss-square\"></i>"
+    #   url  = "/index.xml"
+    #   weight = 0
