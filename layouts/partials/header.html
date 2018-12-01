@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
 <head>
-     <meta charset="utf-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     {{ if eq .Site.Title .Title }}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {{ if eq .Site.Title .Title }}
          <title>{{ .Site.Title }}</title>
-     {{ else }}
+    {{ else }}
          <title>{{ .Site.Title }} {{ with .Title }} | {{ . }}{{ end }}</title>
-     {{end}}
+    {{end}}
     
-    {{ if hasPrefix .Site.GoogleAnalytics "UA-" }}
-        {{ template "_internal/google_analytics.html" . }}
-    {{ end }}
+    {{- if eq (getenv "CONTEXT") "production" }}
+        {{ if hasPrefix .Site.GoogleAnalytics "UA-" }}
+            {{ template "_internal/google_analytics.html" . }}
+        {{end}}
+    {{ end -}}
 
     {{ with .OutputFormats.Get "rss" -}}
         {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
