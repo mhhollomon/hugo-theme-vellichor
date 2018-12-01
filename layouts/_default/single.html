@@ -7,6 +7,24 @@
                 {{ .Content }}
             </div>
         </div>
+        <nav class="level box is-centered is-rounded" role="navigation">
+            {{ $postDate :=  .Date }}
+            {{range first 1  ( where (where .Site.RegularPages "Section" "post")  "Date" "lt" $postDate).ByPublishDate.Reverse }}
+            <div class="level-left">
+                <div class="level-item">
+                    <a href="{{.Permalink}}"><i class="fas fa-arrow-left"></i>&nbsp;{{ .Title }} </a>
+                </div>
+            </div>
+            {{end}}
+            {{range first 1  ( where (where .Site.RegularPages "Section" "post")  "Date" "gt" $postDate).ByPublishDate}}
+            &nbsp;|&nbsp;
+            <div class="level-right">
+                <div class="level-item">
+                    <a href="{{.Permalink}}">{{ .Title }}&nbsp;<i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            {{end}}
+        </nav>
     </div>
     <div class="column is-3">
         {{ partial "widget-tags.html" . }}<br>

@@ -1,31 +1,26 @@
 {{ define "main" }}
-{{ $paginator := .Paginate (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse }}
 
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
-                {{ with .Site.Params.blogWelcome }}
-                <h3>{{ . }}</h3>
-                {{ end }}
+                {{ range first 1 (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse }}
+                <h3>{{ .Title }}</h3>
+                    {{- range $tag := .Param "tags" }}
+                        {{ with $.Site.GetPage (printf "/tags/%s" (lower $tag)) -}}
+                <articleTag><a href="{{.Permalink}}">{{ $tag }}</a></articletag>
+                        {{ end}}
+                    {{ end -}}
                 <hr>
-                {{ range $paginator.Pages }}
                     <article class="media">
                         <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published on {{ .Site.Params.postDateFormat | default "January 2, 2006" | .Date.Format }}
-                                    {{ if isset .Site.Params "showreadingtime" }}
-                                        {{ if .Site.Params.showReadingTime }}
-                                     &middot; <i class="far fa-clock"></i>&nbsp;{{.ReadingTime}} min read
-                                        {{ end }}
-                                    {{ end }}
-                                </p>
-                                <p>{{ .Summary }}...</p>
-                            </div>
+                            <div class="content"> {{ .Content }}</div>
                         </div>
                     </article>
+                    {{ $postDate :=  .Date }}
+                    {{range first 1  ( where (where .Site.RegularPages "Section" "post")  "Date" "lt" $postDate).ByPublishDate.Reverse }}
+                    <a href="{{.Permalink}}"><i class="fas fa-arrow-left"></i>&nbsp;{{ .Title }} </a>
+                    {{end}}
                 {{ end }}
             </div>
         </div>
@@ -34,21 +29,6 @@
         {{ partial "widget-tags.html" . }}<br>
         {{ partial "widget-recent.html" . }}<br>
         {{ partial "widget-archives.html" . }}
-    </div>
-</div>
-<div class="columns">
-    <div class="column is-9">
-        <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
-            {{ if $paginator.HasPrev }}<a class="pagination-previous" href="{{ $paginator.Prev.URL }}">Previous</a>{{ end }}
-            {{ if $paginator.HasNext }}<a class="pagination-next" href="{{ $paginator.Next.URL }}">Next</a>{{ end }}
-            <ul class="pagination-list">
-                {{ range $paginator.Pagers }}
-                <li class="pagination__item">
-                    <a class="pagination-link{{ if eq . $paginator }} is-current{{ end }}" aria-label="Goto page {{ .PageNumber }}" href="{{ .URL }}">{{ .PageNumber }}</a>
-                </li>
-                {{ end }}
-            </ul>
-        </nav>
     </div>
 </div>
 
