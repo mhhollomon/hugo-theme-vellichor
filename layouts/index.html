@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <div class="columns">
-    <div class="column is-9">
+    <column class="column is-9">
         <div class="tile is-child box">
             <div class="content">
                 {{ range first 1 (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse }}
@@ -17,19 +17,16 @@
                             <div class="content"> {{ .Content }}</div>
                         </div>
                     </article>
-                    {{ $postDate :=  .Date }}
-                    {{range first 1  ( where (where .Site.RegularPages "Section" "post")  "Date" "lt" $postDate).ByPublishDate.Reverse }}
-                    <a href="{{.Permalink}}"><i class="fas fa-arrow-left"></i>&nbsp;{{ .Title }} </a>
-                    {{end}}
                 {{ end }}
             </div>
         </div>
-    </div>
-    <div class="column is-3">
+        {{ partial "post-nav.html" . }}
+    </column>
+    <column class="column is-3">
         {{ partial "widget-tags.html" . }}<br>
         {{ partial "widget-recent.html" . }}<br>
         {{ partial "widget-archives.html" . }}
-    </div>
+    </column>
 </div>
 
 {{ end }}
