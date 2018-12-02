@@ -4,7 +4,7 @@
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
-                {{ range (where .Data.Pages "Section" "!=" "") }}
+                {{ range .Pages  }}
                 <article class="media">
                     <div class="media-content">
                         <div class="content">
