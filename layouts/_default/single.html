@@ -4,6 +4,13 @@
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
+            <h3>{{ .Title }}</h3>
+                {{- range $tag := .Param "tags" }}
+                    {{ with $.Site.GetPage (printf "/tags/%s" (lower $tag)) -}}
+            <articleTag><a href="{{.Permalink}}">{{ $tag }}</a></articletag>
+                    {{ end}}
+                {{ end -}}
+            <hr>
                 {{ .Content }}
             </div>
         </div>
