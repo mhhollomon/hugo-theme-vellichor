@@ -22,3 +22,23 @@ pre {
     background-color: #443322!important;
     color : #ffffff!important;
 }
+
+/* Don't mess around with styling yet.
+ *
+.tag:not(body).is-link {
+    background-color: #664433;
+}
+
+a {
+    color: #664433
+}
+
+p a {
+    color: #FF66FF
+}
+
+a:hover {
+    color: #FF4433
+}
+
+*/

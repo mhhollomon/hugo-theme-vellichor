@@ -1,9 +1,97 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+<html lang="{{ $.Site.LanguageCode | default "en" }}">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {{ block "head-title" . }}
+        {{ if eq .Site.Title .Title }}
+             <title>{{ .Site.Title }}</title>
+        {{ else }}
+             <title>{{ .Site.Title }} {{ with .Title }} | {{ . }}{{ end }}</title>
+        {{end}}
+    {{end}}
+    
+    {{- if eq (getenv "CONTEXT") "production" }}
+        {{ if hasPrefix .Site.GoogleAnalytics "UA-" }}
+            {{ template "_internal/google_analytics.html" . }}
+        {{end}}
+    {{ end -}}
 
-<div class="container">
-    <div class="section">
-    {{ block "main" . }}{{ end }}
+    {{ with .OutputFormats.Get "rss" -}}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="{{ "css/blog.css" | absURL }}" />
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
+    </script>
+
+    {{ block "head-extra" . }}{{end}}
+</head>
+
+<!--        BODY     -->
+
+<body>
+
+    <!-- nav -->
+    <div class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        {{ partial "top-menu.html" . }}
     </div>
+    <!-- /nav -->
+
+    <!-- hero -->
+    <section class="hero is-info is-medium">
+        <div class="hero-body" 
+               {{ with .Site.Params.headerImage }}
+                  style="background-image: url({{ . | absURL }});"
+               {{ end }}
+                  >
+            <div class="container has-text-centered">
+                <br>
+                <h1 class="title is-size-1">
+                        {{ .Site.Title }}
+                </h1>
+            </div>
+        </div>
+    </section>
+
+<div class="section">
+<div class="container is-fluid">
+    {{ block "main" . }}{{ end }}
+</div>
 </div>
 
 {{ partial "footer.html" . }}
+
+<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</body>
+</html>

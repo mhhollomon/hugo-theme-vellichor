@@ -7,7 +7,9 @@
             <h3>{{ .Title }}</h3>
                 {{- range $tag := .Param "tags" }}
                     {{ with $.Site.GetPage (printf "/tags/%s" (lower $tag)) -}}
-            <articleTag><a href="{{.Permalink}}">{{ $tag }}</a></articletag>
+                    <a href="{{.Permalink}}">
+                        <span class="tag is-link">{{ $tag }}</span>
+                    </a>
                     {{ end}}
                 {{ end -}}
             <hr>
