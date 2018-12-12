@@ -86,7 +86,18 @@
 
 <div class="section">
 <div class="container is-fluid">
-    {{ block "main" . }}{{ end }}
+<div class="columns">
+    <column class="column is-9">
+    {{ block "middleColumn" . }} {{ end }}
+    </column>
+    <column class="column is-3">
+    {{ block "rightColumn" . }}
+        {{ partial "widget-tags.html" . }}<br>
+        {{ partial "widget-recent.html" . }}<br>
+        {{ partial "widget-archives.html" . }}
+    {{ end }}
+    </column>
+</div>
 </div>
 </div>
 
