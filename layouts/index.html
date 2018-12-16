@@ -5,7 +5,7 @@
         {{ range first 1 (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse }}
         <h3>{{ .Title }}</h3>
             {{- range $tag := .Param "tags" }}
-                {{ with $.Site.GetPage (printf "/tags/%s" (lower $tag)) -}}
+                {{ with $.Site.GetPage (printf "/tags/%s" (replace (lower $tag) " " "-")) -}}
             <a href="{{.Permalink}}">
                 <span class="tag is-link">{{ $tag }}</span>
             </a>

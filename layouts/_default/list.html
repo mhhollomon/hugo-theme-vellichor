@@ -8,7 +8,7 @@
                 <div class="content">
                     <p class="title is-4"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></p>
                     <p class="subtitle is-size-6 has-text-grey-light">
-                            Published on {{ .Site.Params.postDateFormat | default "January 2, 2006" | .Date.Format }}
+                            Published on {{ .Site.Params.postDateFormat | default "January 2, 2006" | .PublishDate.Format }}
                             {{ if isset .Site.Params "showreadingtime" }}
                                 {{ if .Site.Params.showReadingTime }}
                              &middot; <i class="far fa-clock"></i>&nbsp;{{.ReadingTime}} min read
