@@ -1,13 +1,12 @@
 
 {{ define "open-graph" }}
 {{ $latestPost := index (first 1 (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse ) 0 }}
+{{- with $latestPost -}}
     <meta property="og:title" content="{{.Title}}" />
     <meta property="og:type"  content="article" />
-{{/* Want the Permalink to refer to the post, not the site. */}}
-{{- with $latestPost -}}
     <meta property="og:url"   content="{{.Permalink}}" />
-{{ end }}
     <meta property="og:image" content="" />
+{{ end }}
 {{ end }}
 
 {{ define "middleColumn" }}
@@ -30,4 +29,5 @@
     </div>
 </div>
 {{ partial "post-nav.html" . }}
+{{ partial "comment.html" $latestPost }}
 {{ end }}

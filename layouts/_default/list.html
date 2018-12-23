@@ -2,7 +2,7 @@
 
 <div class="tile is-child box">
     <div class="content">
-        {{ range .Pages  }}
+        {{ range sort .Pages "PublishDate" "desc"  }}
         <article class="media">
             <div class="media-content">
                 <div class="content">
