@@ -1,11 +1,8 @@
 
 {{ define "open-graph" }}
 {{ $latestPost := index (first 1 (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse ) 0 }}
-{{- with $latestPost -}}
-    <meta property="og:title" content="{{.Title}}" />
-    <meta property="og:type"  content="article" />
-    <meta property="og:url"   content="{{.Permalink}}" />
-    <meta property="og:image" content="" />
+{{- with $latestPost}}
+    {{- partial "opengraph.html" . }}
 {{ end }}
 {{ end }}
 

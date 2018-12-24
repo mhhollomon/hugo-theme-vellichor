@@ -1,0 +1,6 @@
+    <meta property="og:title" content="{{.Title}}" />
+    <meta property="og:type"  content="article" />
+    <meta property="og:url"   content="{{.Permalink}}" />
+{{- with $.Param "openGraphImage" }}
+    <meta property="og:image" content="{{.}}" />
+{{end}}
