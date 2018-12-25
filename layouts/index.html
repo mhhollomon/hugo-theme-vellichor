@@ -1,4 +1,9 @@
 
+{{define "head-extra"}}
+{{ with $.Site.Param "siteVerification" }}
+<meta name="google-site-verification" content="{{.}}" />
+{{end}}
+{{end}}
 {{ define "open-graph" }}
 {{ $latestPost := index (first 1 (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse ) 0 }}
 {{- with $latestPost}}
