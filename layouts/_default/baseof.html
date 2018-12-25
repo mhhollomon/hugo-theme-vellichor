@@ -32,30 +32,30 @@
     <meta property="og:site_name" content="{{.Site.Title}}" />
     {{- block "open-graph" . }}{{end}}
 
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', () => {
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
 
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
 
-        // Add a click event on each of them
-        $navbarBurgers.forEach( el => {
-          el.addEventListener('click', () => {
+            // Add a click event on each of them
+            $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
 
-            // Get the target from the "data-target" attribute
-            const target = el.dataset.target;
-            const $target = document.getElementById(target);
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
 
-            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-            el.classList.toggle('is-active');
-            $target.classList.toggle('is-active');
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
 
-          });
-        });
-      }
+                });
+            });
+        }
 
     });
     </script>
@@ -82,9 +82,9 @@
                   >
             <div class="container has-text-centered">
                 <br>
-                <h1 class="title is-size-1">
+                <div class="title is-size-1">
                         {{ .Site.Title }}
-                </h1>
+                </div>
             </div>
         </div>
     </section>
@@ -92,16 +92,16 @@
 <div class="section">
 <div class="container is-fluid">
 <div class="columns">
-    <column class="column is-9">
+    <div class="column is-9">
     {{ block "middleColumn" . }} {{ end }}
-    </column>
-    <column class="column is-3">
+    </div>
+    <div class="column is-3">
     {{ block "rightColumn" . }}
         {{ partial "widget-tags.html" . }}<br>
         {{ partial "widget-recent.html" . }}<br>
         {{ partial "widget-archives.html" . }}
     {{ end }}
-    </column>
+    </div>
 </div>
 </div>
 </div>

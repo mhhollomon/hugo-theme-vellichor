@@ -1,5 +1,5 @@
 
-<nav class="level box is-centered is-rounded" role="navigation">
+<nav class="level box is-centered is-rounded">
     {{ $postDate :=  .PublishDate | default .Date }}
     {{range first 1  ( where (where .Site.RegularPages "Section" "post")  "PublishDate" "lt" $postDate).ByPublishDate.Reverse }}
     <div class="level-left">
