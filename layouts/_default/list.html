@@ -1,36 +1,26 @@
-{{ define "main" }}
+{{ define "middleColumn" }}
 
-<div class="columns">
-    <div class="column is-9">
-        <div class="tile is-child box">
-            <div class="content">
-                {{ range (where .Data.Pages "Section" "!=" "") }}
-                <article class="media">
-                    <div class="media-content">
-                        <div class="content">
-                            <p class="title is-4"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></p>
-                            <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published on {{ .Site.Params.postDateFormat | default "January 2, 2006" | .Date.Format }}
-                                    {{ if isset .Site.Params "showreadingtime" }}
-                                        {{ if .Site.Params.showReadingTime }}
-                                     &middot; <i class="far fa-clock"></i>&nbsp;{{.ReadingTime}} min read
-                                        {{ end }}
-                                    {{ end }}
-                            </p>
-                            <p>{{ .Summary }}...</p>
-                        </div>
-                    </div>
-                </article>
-                <br>
-{{ end }}
+<div class="tile is-child box">
+    <div class="content">
+        {{ range sort .Pages "PublishDate" "desc"  }}
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                    <p class="title is-4"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></p>
+                    <p class="subtitle is-size-6 has-text-grey-light">
+                            Published on {{ .Site.Params.postDateFormat | default "January 2, 2006" | .PublishDate.Format }}
+                            {{ if isset .Site.Params "showreadingtime" }}
+                                {{ if .Site.Params.showReadingTime }}
+                             &middot; <i class="far fa-clock"></i>&nbsp;{{.ReadingTime}} min read
+                                {{ end }}
+                            {{ end }}
+                    </p>
+                    <p>{{ .Summary }}...</p>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="column is-3">
-        {{ partial "widget-tags.html" . }}<br>
-        {{ partial "widget-recent.html" . }}<br>
-        {{ partial "widget-archives.html" . }}
+        </article>
+        <br>
+{{ end }}
     </div>
 </div>
-
 {{ end }}

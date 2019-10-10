@@ -1,0 +1,18 @@
+{{ $page := . }}
+{{ with .Site.DisqusShortname }}
+{{ template "_internal/disqus.html" $page }}
+{{ else }}
+    {{ with $.Param "utterances" }}
+        {{ $repo := .testrepo }}
+        {{- if eq (getenv "CONTEXT") "production" }}
+            {{ $repo = .repo }}
+        {{ end -}}
+    <script src="https://utteranc.es/client.js"
+            repo="{{ $repo }}"
+            issue-term="{{$page.Permalink}}"
+            theme="{{ .theme | default "github-light"}}"
+            crossorigin="anonymous"
+            async>
+    </script>
+    {{ end }}
+{{end}}

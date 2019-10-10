@@ -1,4 +1,34 @@
 <div class="navbar-brand">
-    <a class="navbar-item" href="{{ .Site.BaseURL | absURL }}">Home</a>
-    <a class="navbar-item" href="{{ "about" | absURL }}">About</a>
+    {{ with .Site.Menus.brand }}
+    {{ range . }}
+        <a class="navbar-item" href="{{.URL}}">{{.Name}}</a>
+    {{end}}
+    {{else}}
+        <a class="navbar-item" href="{{ .Site.BaseURL | absURL }}">Home</a>
+        <a class="navbar-item" href="{{ "about" | absURL }}">About</a>
+    {{end}}
+    {{/* This is the "hamburger". */}}
+    <a role="button" class="navbar-burger" data-target="nav-menu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+</div>
+<div class="navbar-menu" id="nav-menu">
+    {{ with .Site.Menus.topleft }}
+        <menustart class="navbar-start">
+        {{ range . }}
+            <a class="navbar-item" href="{{.URL}}">{{.Name}}</a>
+        {{end}}
+        </menustart>
+    {{end}}
+    <div class="navbar-end">
+    {{ with .Site.Menus.topright }}
+        {{ range . }}
+            <a class="navbar-item" href="{{.URL}}">{{.Name}}</a>
+        {{end}}
+    {{else}}
+    <a class="navbar-item" href="{{ "index.xml" | absURL }}"><i class="fas fa-rss-square"></i>RSS</a>
+    {{end}}
+    </div>
 </div>

@@ -1,0 +1,19 @@
+
+<nav class="level box is-centered is-rounded">
+    {{ $postDate :=  .PublishDate | default .Date }}
+    {{range first 1  ( where (where .Site.RegularPages "Section" "post")  "PublishDate" "lt" $postDate).ByPublishDate.Reverse }}
+    <div class="level-left">
+        <div class="level-item">
+            <a href="{{.Permalink}}"><i class="fas fa-arrow-left"></i>&nbsp;{{ .Title }} </a>
+        </div>
+    </div>
+    {{end}}
+    {{range first 1  ( where (where .Site.RegularPages "Section" "post")  "PublishDate" "gt" $postDate).ByPublishDate}}
+    &nbsp;|&nbsp;
+    <div class="level-right">
+        <div class="level-item">
+            <a href="{{.Permalink}}">{{ .Title }}&nbsp;<i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    {{end}}
+</nav>

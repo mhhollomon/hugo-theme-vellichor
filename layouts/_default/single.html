@@ -1,18 +1,24 @@
-{{ define "main" }}
+{{ define "open-graph" }}
+{{ partial "opengraph.html" . }}
+{{ end }}
 
-<div class="columns">
-    <div class="column is-9">
-        <div class="tile is-child box">
-            <div class="content">
-                {{ .Content }}
-            </div>
-        </div>
-    </div>
-    <div class="column is-3">
-        {{ partial "widget-tags.html" . }}<br>
-        {{ partial "widget-recent.html" . }}<br>
-        {{ partial "widget-archives.html" . }}
+{{ define "middleColumn" }}
+
+<div class="tile is-child box">
+    <div class="content">
+    <h3>{{ .Title }}</h3>
+        {{- range $tag := .Param "tags" }}
+            {{ with $.Site.GetPage (printf "/tags/%s" (lower $tag)) -}}
+            <a href="{{.Permalink}}">
+                <span class="tag is-link">{{ $tag }}</span>
+            </a>
+            {{ end}}
+        {{ end -}}
+    <hr>
+        {{ .Content }}
     </div>
 </div>
+{{ partial "post-nav.html" . }}
+{{ partial "comment.html" . }}
 
 {{ end }}

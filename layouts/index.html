@@ -1,55 +1,35 @@
-{{ define "main" }}
-{{ $paginator := .Paginate (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse }}
 
-<div class="columns">
-    <div class="column is-9">
-        <div class="tile is-child box">
-            <div class="content">
-                {{ with .Site.Params.blogWelcome }}
-                <h3>{{ . }}</h3>
-                {{ end }}
-                <hr>
-                {{ range $paginator.Pages }}
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p class="title is-4"><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></p>
-                                <p class="subtitle is-size-6 has-text-grey-light">
-                                    Published on {{ .Site.Params.postDateFormat | default "January 2, 2006" | .Date.Format }}
-                                    {{ if isset .Site.Params "showreadingtime" }}
-                                        {{ if .Site.Params.showReadingTime }}
-                                     &middot; <i class="far fa-clock"></i>&nbsp;{{.ReadingTime}} min read
-                                        {{ end }}
-                                    {{ end }}
-                                </p>
-                                <p>{{ .Summary }}...</p>
-                            </div>
-                        </div>
-                    </article>
-                {{ end }}
-            </div>
-        </div>
-    </div>
-    <div class="column is-3">
-        {{ partial "widget-tags.html" . }}<br>
-        {{ partial "widget-recent.html" . }}<br>
-        {{ partial "widget-archives.html" . }}
+{{define "head-extra"}}
+{{ with $.Site.Param "siteVerification" }}
+<meta name="google-site-verification" content="{{.}}" />
+{{end}}
+{{end}}
+{{ define "open-graph" }}
+{{ $latestPost := index (first 1 (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse ) 0 }}
+{{- with $latestPost}}
+    {{- partial "opengraph.html" . }}
+{{ end }}
+{{ end }}
+
+{{ define "middleColumn" }}
+
+{{ $latestPost := index (first 1 (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse ) 0 }}
+<div class="tile is-child box">
+    <div class="content">
+        {{ with $latestPost }}
+        <h3>{{ .Title }}</h3>
+            {{- range $tag := .Param "tags" }}
+                {{ with $.Site.GetPage (printf "/tags/%s" (replace (lower $tag) " " "-")) -}}
+            <a href="{{.Permalink}}">
+                <span class="tag is-link">{{ $tag }}</span>
+            </a>
+                {{ end}}
+            {{ end -}}
+        <hr>
+        {{ .Content }}
+        {{ end }}
     </div>
 </div>
-<div class="columns">
-    <div class="column is-9">
-        <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
-            {{ if $paginator.HasPrev }}<a class="pagination-previous" href="{{ $paginator.Prev.URL }}">Previous</a>{{ end }}
-            {{ if $paginator.HasNext }}<a class="pagination-next" href="{{ $paginator.Next.URL }}">Next</a>{{ end }}
-            <ul class="pagination-list">
-                {{ range $paginator.Pagers }}
-                <li class="pagination__item">
-                    <a class="pagination-link{{ if eq . $paginator }} is-current{{ end }}" aria-label="Goto page {{ .PageNumber }}" href="{{ .URL }}">{{ .PageNumber }}</a>
-                </li>
-                {{ end }}
-            </ul>
-        </nav>
-    </div>
-</div>
-
+{{ partial "post-nav.html" . }}
+{{ partial "comment.html" $latestPost }}
 {{ end }}

@@ -7,14 +7,16 @@ title = "Vellichor Hugo Theme"
 #
 canonifyurls = true
 paginate = 3
+theme = "hugo-theme-vellichor"
 
 # Optionally supported.
 # If blank or commented out, the code will
 # not be included in the header.
 #googleAnalytics = "UA-123-45"
 
-theme = "hugo-theme-vellichor"
-
+[author]
+    name = "Fab User"
+    email ="fab.user@example.com"
 #
 # Tell Hugo what groupings we want to use.`
 # This is required by the theme.
@@ -33,10 +35,6 @@ theme = "hugo-theme-vellichor"
     #Reddit   = "userid"
 
 [Params]
-    #
-    # default author. Needs to be here, unless you
-    # provide a copyright notice above.
-    author = "Fab User"
     #
     # Image to place in the header. Optional.
     # if you don't want this, comment it out.
@@ -62,3 +60,39 @@ theme = "hugo-theme-vellichor"
     # define your own (copy static/css/blog.css) or use one (or more) of the Bulma helper classes.
     # Value below is the default if the value is not given.
     footerClass = "blog-footer"
+
+[menu]
+    #
+    # The "brand" menu is used as the navbar at top left.
+    # The below definition is what will be shown if the menu is not
+    # defined in the config file.
+    # If you wish to add new entries, uncomment these so that you
+    # don't lose these (if you want them). All entries will be shown
+    # in order of ascending weight.
+
+    #[[menu.brand]]
+    #    identifier = "home"
+    #    name = "Home"
+    #    url = "/"
+    #    weight = -110
+    #
+    #[[menu.brand]]
+    #    identifier = "about"
+    #    name = "About"
+    #    url = "/about/"
+    #    weight = -100
+    #
+    # The "topleft" menu will be just to the right of the "brand" menu,
+    # if defined. On a mobile platform, a "Hamburger" menu will be shown
+    # to show these. There is nothing in this by default
+    #
+    # The "topright" menu is drawn flush with the right side of the window.
+    # They will be hidden by default on mobile platforms.
+    # The RSS entry below is what you will get by default
+    # 
+    #[[menu.topright]]
+    #   identifier = "rss"
+    #   name = "RSS"
+    #   pre = "<i class=\"fas fa-rss-square\"></i>"
+    #   url  = "/index.xml"
+    #   weight = 0

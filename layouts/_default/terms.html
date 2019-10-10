@@ -1,2 +1,20 @@
-{{/* Hugo wants to create a page with all the cetegories/tags listed. We don't use that in this them, but
-Hugo gets upset if it can't find a layout for these pages */}}
+{{ define "middleColumn" }}
+<div class="tile is-child box">
+    <div class="content">
+    <article>
+        <header>
+            <h1>{{.Title}}</h1>
+        </header>
+        <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+        {{.Content}}
+    </article>
+    <ul>
+    {{ range .Pages }}
+        <li>
+            <a href="{{.Permalink}}">{{.PublishDate.Format "2006-01-02"}} | {{.Title}}</a>
+        </li>
+    {{ end }}
+    </ul>
+    </div>
+</div>
+{{ end }}

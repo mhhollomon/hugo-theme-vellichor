@@ -1,10 +1,10 @@
-<div class="card">
-    <div class="card-content">
-        <h1 class="title is-5">Tags</h1>
-        <div class="tags">
-        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-            <span class="tag"><a href="{{ "tags" | absURL }}/{{ $name | urlize }}">{{ $name }}</a></span>
-        {{ end }}
-        </div>          
-    </div>
+<div class="tile is-child box">
+    <h1 class="title is-5"><a href="{{"tags/index.html"|absURL}}">Tags</a></h1>
+    <div class="tags">
+    {{ range first 10 .Site.Taxonomies.tags.ByCount }}
+    <a href="{{ "tags" | absURL }}/{{ .Name | urlize }}/">
+        <span class="tag is-link">{{ .Name }} ({{.Count}})</span>&nbsp;
+    </a>
+    {{ end }}
+    </div>          
 </div>

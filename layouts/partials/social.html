@@ -17,9 +17,10 @@
 {{/* We make the unwarranted assumption that the name of the service is the same as website */}}
 
 {{ range $serv, $userid := .Site.Social }}
+    {{ $icon_font := index $.Site.Data.socialIcon $serv }}
     <span class="icon {{$span_class}}">
         <a href="https://{{$serv}}.com/{{$userid}}" class="mysocial">
-            <i class="fab fa-{{$serv}} {{$icon_class}}"></i>
+            <i class="{{$icon_font}} {{$icon_class}}"></i>
         </a>
     </span>
     &nbsp;&nbsp;
