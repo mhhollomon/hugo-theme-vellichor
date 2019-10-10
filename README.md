@@ -43,12 +43,13 @@ And edit this new file `content/post/my-first-post.md`. You can use [Markdown](h
 THe vellichor theme has quite a few ways to customize it. Just as a sample you can:
 
 - change the image in the header.
-- Control which social media links are displayed.`
+- Control which social media links are displayed.
 - Customize the links at the top.
 
 Please see the following two places for more information.
-- exampleSite/config.toml has descriptions and examples of most of the settings
-- [COMFIGURATION.md] has more detailed information on other ways to customize the theme
+- exampleSite/config.toml has descriptions and examples of most of the
+  settings.
+- The [Configuration How-to](CONFIGURATION.md) has more detailed information on other ways to customize the theme.
 
 
 # License

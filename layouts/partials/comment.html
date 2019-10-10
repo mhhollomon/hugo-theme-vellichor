@@ -5,7 +5,7 @@
     {{ with $.Param "utterances" }}
         {{ $repo := .testrepo }}
         {{- if eq (getenv "CONTEXT") "production" }}
-            {{ $repo := .repo }}
+            {{ $repo = .repo }}
         {{ end -}}
     <script src="https://utteranc.es/client.js"
             repo="{{ $repo }}"
